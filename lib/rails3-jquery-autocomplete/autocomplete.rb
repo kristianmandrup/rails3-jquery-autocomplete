@@ -42,7 +42,7 @@ module Rails3JQueryAutocomplete
     #
     module ClassMethods
       def autocomplete(object, method, options = {})
-        define_method("autocomplete_#{object}_#{method}") do
+        define_method("autocomplete_#{object}_#{method.first}") do
 
           method = options[:column_name] if options.has_key?(:column_name)
 
@@ -57,7 +57,7 @@ module Rails3JQueryAutocomplete
             items = {}
           end
 
-          render :json => json_for_autocomplete(items, options[:display_value] ||= method, options[:extra_data])
+          render :json => json_for_autocomplete(items, options[:display_value] ||= method.first, options[:extra_data])
         end
       end
     end
