@@ -51,7 +51,8 @@ module Rails3JQueryAutocomplete
           if term && !term.blank?
             #allow specifying fully qualified class name for model object
             class_name = options[:class_name] || object
-            items = get_autocomplete_items(:model => get_object(class_name), \
+            model = options[:scoped_model] ? eval(options[:scoped_model]) : get_object(class_name)
+            items = get_autocomplete_items(:model => model, \
               :options => options, :term => term, :method => method)
           else
             items = {}
