@@ -28,7 +28,7 @@ module Rails3JQueryAutocomplete
             limit(limit).order(order)
         items = items.where(where) unless where.blank?
 
-        items
+        current_ability ? items.accessible_by(current_ability) : items
       end
 
       def get_autocomplete_select_clause(model, method, options)
