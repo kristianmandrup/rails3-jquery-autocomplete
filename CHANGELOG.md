@@ -1,5 +1,6 @@
 # Changelog
 
+* 1.0.7.2 Changed split command
 * 1.0.7 Full search of extra fields added
 * 1.0.6 Postgres or non-postgres queries are now determined at model level
 * 1.0.3 Fixed Formtastic 2.0 + Ruby 1.8.7 compat issue
